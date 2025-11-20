@@ -1,1 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Science Communication - Science Journalism</title>
+  <link rel="stylesheet" href="/scicom/styles.css" />
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <link rel="icon" type="image/png" href="/scicom/images/icon_scicom.png">
+</head>
+<body>
+  <header>
+    <h1><a href="/scicom/index.html" class="home-link">Basics of SciCom</a> - Journalism</h1>
+    <div id="nav-placeholder"></div>
+  </header>
+
+  <main>
+    <section>
+      <h2>Why science journalism matters</h2>
+      <p>
+        Science journalism translates research into public narratives, shaping how societies understand discoveries, risks, and debates. Unlike museums or centers, journalism operates in real time, mediating between experts, institutions, and diverse publics through stories that inform, question, and hold science accountable.
+      </p>
+      <p>
+        Its role is not only to popularize science but also to scrutinize claims, contextualize evidence, and highlight ethical, political, and social dimensions of scientific work.
+      </p>
+    </section>
+
+    <section class="main-box">
+      Main thing to know: <br />
+      <strong>Science journalism = evidence + narrative + accountability</strong>—it informs, questions, and connects science to society.
+    </section>
+
+    <section>
+      <h2>Core functions of science journalism</h2>
+      <ul>
+        <li><strong>Informing:</strong> Making complex research accessible to general audiences.</li>
+        <li><strong>Contextualizing:</strong> Situating findings within broader social, political, and ethical debates.</li>
+        <li><strong>Investigating:</strong> Scrutinizing claims, funding, and conflicts of interest.</li>
+        <li><strong>Connecting:</strong> Linking science to everyday life, policy, and culture.</li>
+        <li><strong>Accountability:</strong> Holding institutions and experts responsible for transparency and integrity.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>At a glance comparison</h2>
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Aspect</th>
+            <th>Science journalism</th>
+            <th>Other SciCom (e.g., museums/centers)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Primary medium</td>
+            <td>News articles, features, podcasts, documentaries</td>
+            <td>Exhibits, programs, interactives</td>
+          </tr>
+          <tr>
+            <td>Timeframe</td>
+            <td>Immediate, tied to current events</td>
+            <td>Long‑term, sustained engagement</td>
+          </tr>
+          <tr>
+            <td>Audience relationship</td>
+            <td>Broad publics, mediated via mass media</td>
+            <td>Visitors, learners, communities</td>
+          </tr>
+          <tr>
+            <td>Strengths</td>
+            <td>Reach, timeliness, scrutiny, accountability</td>
+            <td>Immersion, interactivity, trust‑building</td>
+          </tr>
+          <tr>
+            <td>Risks</td>
+            <td>Simplification, hype, misinformation</td>
+            <td>Limited reach, slower adaptation</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Challenges and ethics</h2>
+      <p>
+        Science journalism faces pressures from speed, funding, and polarization. Ethical practice requires balancing accuracy with accessibility, resisting sensationalism, and foregrounding diverse voices in science.
+      </p>
+      <ul>
+        <li><strong>Accuracy vs. speed:</strong> Reporting quickly without sacrificing rigor.</li>
+        <li><strong>Hype vs. skepticism:</strong> Avoiding exaggerated claims while maintaining public interest.</li>
+        <li><strong>Diversity:</strong> Representing scientists and communities across gender, geography, and culture.</li>
+        <li><strong>Transparency:</strong> Disclosing sources, uncertainties, and conflicts of interest.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Digital transformations</h2>
+      <p>
+        Online platforms, podcasts, and social media have expanded science journalism’s reach. Journalists now engage directly with audiences, experiment with multimedia storytelling, and navigate challenges of misinformation and algorithmic amplification.
+      </p>
+      <ul>
+        <li><strong>Multimedia formats:</strong> Video explainers, interactive graphics, podcasts.</li>
+        <li><strong>Social media:</strong> Direct engagement, but also vulnerability to misinformation.</li>
+        <li><strong>Collaborative models:</strong> Partnerships with scientists, educators, and fact‑checking organizations.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Further reading</h2>
+      <p>
+        For deeper dives, explore scholarship on science journalism, media ethics, and the role of journalism in democratic societies.
+      </p>
+      <section>
+        <a href="https://www.routledge.com/Handbook-of-Science-Communication/Chapter-5" 
+           class="pdf-download" target="_blank" rel="noopener">
+          Read: Handbook of Science Communication – Chapter 5 (Science Journalism)
+        </a>
+      </section>
+    </section>
+  </main>
+
+  <div id="footer"></div>
+  <script>
+    fetch("/scicom/footer.html")
+      .then(r => r.text())
+      .then(html => { document.getElementById("footer").innerHTML = html; });
+  </script>
+
+  <script>
+    async function loadNav() {
+      try {
+        const response = await fetch('/scicom/nav.html');
+        if (!response.ok) throw new Error('Network response was not ok');
+        const navHTML = await response.text();
+        document.getElementById('nav-placeholder').innerHTML = navHTML;
+
+        const links = document.querySelectorAll('#nav-placeholder nav a');
+        const currentPage = window.location.pathname.split('/').pop();
+
+        links.forEach(link => {
+          if (link.getAttribute('href') === currentPage) {
+            link.classList.add('active');
+          }
+        });
+      } catch (error) {
+        console.error('Failed to load navigation:', error);
+      }
+    }
+    loadNav();
+  </script>
+</body>
+</html>
 
