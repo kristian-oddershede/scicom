@@ -484,3 +484,14 @@ header h1 a.home-link:hover {
 }
 
 
+/* Privacy page tweaks */
+main h2 {
+  color: #444;
+  margin-bottom: 1rem;
+}
+
+main h3 {
+  margin-top: 1.5rem;
+  color: #333;
+}
+
