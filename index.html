@@ -1,1 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Basics of SciCom</title>
+  <link rel="stylesheet" href="/scicom/styles.css" />
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <link rel="icon" type="image/png" href="/scicom/images/newton-cradle_1603091.png">
+</head>
+<body>
+  <header>
+    <h1><a href="/scicom/index.html" class="home-link">Basics of SciCom</a></h1>
+    <div id="nav-placeholder"></div>
+  </header>
 
+
+  <main>
+    <section>
+      <h2>An introduction to Science Communication</h2>
+      <p>
+        This webpage can be used as a way to introduce key topics of Science Communication at university level.
+      </p>
+    </section>
+
+    <section>
+      <h2>Key Methodologies in SciCom</h2>
+      <p>
+        SciCom relies on a combination of .... 
+      </p>
+    </section>
+  </main>
+
+  <div id="footer"></div>
+  <script>
+    fetch("/scicom/footer.html")
+      .then(r => r.text())
+      .then(html => { document.getElementById("footer").innerHTML = html; });
+  </script>
+
+
+  <script>
+    async function loadNav() {
+      try {
+        const response = await fetch('/scicom/nav.html');
+        if (!response.ok) throw new Error('Network response was not ok');
+        const navHTML = await response.text();
+        document.getElementById('nav-placeholder').innerHTML = navHTML;
+  
+        // Highlight the current page link
+        const links = document.querySelectorAll('#nav-placeholder nav a');
+        const currentPage = window.location.pathname.split('/').pop();
+  
+        links.forEach(link => {
+          if (link.getAttribute('href') === currentPage) {
+            link.classList.add('active');
+          }
+        });
+      } catch (error) {
+        console.error('Failed to load navigation:', error);
+      }
+    }
+    loadNav();
+  </script>
+</body>
+</html>
