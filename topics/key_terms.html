@@ -1,1 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Science Communication - Key Terms</title>
+  <link rel="stylesheet" href="/scicom/styles.css" />
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <link rel="icon" type="image/png" href="/scicom/images/icon_scicom.png">
+</head>
+<body>
+  <header>
+    <h1><a href="/scicom/index.html" class="home-link">Basics of SciCom</a> - Key Terms</h1>
+    <div id="nav-placeholder"></div>
+  </header>
+
+  <main>
+    <section>
+      <h2>Why key terms matter</h2>
+      <p>
+        Shared language helps teams design, evaluate, and improve science communication. These ten concise terms capture the core ideas practitioners use to align goals, audiences, methods, and ethics.
+      </p>
+    </section>
+
+    <section class="main-box">
+      Main thing to know: <br />
+      <strong>Clear concepts = clearer choices</strong>—these terms guide what you communicate, how you design, and how you measure impact.
+    </section>
+
+    <section>
+      <h2>Ten central terms at a glance</h2>
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Term</th>
+            <th>Core idea</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Publics</td>
+            <td>Different groups with distinct contexts and needs—not a single “general public.”</td>
+          </tr>
+          <tr>
+            <td>Engagement</td>
+            <td>Mutual interaction where audiences participate, question, and contribute—not one‑way messaging.</td>
+          </tr>
+          <tr>
+            <td>Trust</td>
+            <td>Confidence built through transparency, evidence, and respect for uncertainty and limits.</td>
+          </tr>
+          <tr>
+            <td>Framing</td>
+            <td>How issues are presented to shape meaning, relevance, and decisions without distorting facts.</td>
+          </tr>
+          <tr>
+            <td>Narrative</td>
+            <td>Structured stories that connect evidence to lived experience and motivate understanding.</td>
+          </tr>
+          <tr>
+            <td>Inquiry</td>
+            <td>Hands‑on observation, testing, and reflection that turn curiosity into learning.</td>
+          </tr>
+          <tr>
+            <td>Expertise</td>
+            <td>Knowledge plus accountability; recognizing scientific, local, and experiential expertise.</td>
+          </tr>
+          <tr>
+            <td>Uncertainty</td>
+            <td>What is unknown or provisional; communicating limits and methods for reducing them.</td>
+          </tr>
+          <tr>
+            <td>Inclusion</td>
+            <td>Access, representation, and agency so diverse communities shape content and practice.</td>
+          </tr>
+          <tr>
+            <td>Evaluation</td>
+            <td>Evidence of impact using mixed methods to assess engagement, learning, equity, and trust.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <div id="footer"></div>
+  <script>
+    fetch("/scicom/footer.html")
+      .then(r => r.text())
+      .then(html => { document.getElementById("footer").innerHTML = html; });
+  </script>
+
+  <script>
+    async function loadNav() {
+      try {
+        const response = await fetch('/scicom/nav.html');
+        if (!response.ok) throw new Error('Network response was not ok');
+        const navHTML = await response.text();
+        document.getElementById('nav-placeholder').innerHTML = navHTML;
+
+        const links = document.querySelectorAll('#nav-placeholder nav a');
+        const currentPage = window.location.pathname.split('/').pop();
+
+        links.forEach(link => {
+          if (link.getAttribute('href') === currentPage) {
+            link.classList.add('active');
+          }
+        });
+      } catch (error) {
+        console.error('Failed to load navigation:', error);
+      }
+    }
+    loadNav();
+  </script>
+</body>
+</html>
 
