@@ -3,12 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Suggestions - Basics of Physics</title>
-  <link rel="stylesheet" href="/physics/styles.css" />
+  <title>Suggestions - Basics of SciCom</title>
+  <link rel="stylesheet" href="/scicom/styles.css" />
+  <link rel="icon" type="image/png" href="/scicom/images/icon_scicom.png">
 </head>
 <body>  
   <header>
-    <h1><a href="/physics/index.html" class="home-link">Basics of Physics</a> - Suggestions</h1>
+    <h1><a href="/scicom/index.html" class="home-link">Basics of SciCom</a> - Suggestions</h1>
     <div id="nav-placeholder"></div>
   </header> 
 
@@ -29,7 +30,7 @@
 
   <div id="footer"></div>
   <script>
-    fetch("/physics/footer.html")
+    fetch("/scicom/footer.html")
       .then(r => r.text())
       .then(html => { document.getElementById("footer").innerHTML = html; });
   </script>
@@ -37,7 +38,7 @@
   <script>
     async function loadNav() {
       try {
-        const response = await fetch('/physics/nav.html');
+        const response = await fetch('/scicom/nav.html');
         if (!response.ok) throw new Error('Network response was not ok');
         const navHTML = await response.text();
         document.getElementById('nav-placeholder').innerHTML = navHTML;
