@@ -76,5 +76,31 @@
     }
     loadNav();
   </script>
+
+  <!-- Cookie Consent Banner -->
+  <div id="cookie-banner" class="cookie-banner">
+    <p>
+      We only use necessary cookies, so no need to worry. 
+      If you voluntarily provide your email to give suggestions, 
+      it may be stored securely in Google Forms for up to 2 years.
+    </p>
+    <button id="cookie-ack-btn" class="cookie-btn">
+      I acknowledge and accept
+    </button>
+  </div>
+  
+  <script>
+    // Show banner only if not acknowledged
+    if (!localStorage.getItem("cookieAcknowledged")) {
+      document.getElementById("cookie-banner").style.display = "block";
+    }
+  
+    // Handle button click
+    document.getElementById("cookie-ack-btn").addEventListener("click", function () {
+      localStorage.setItem("cookieAcknowledged", "true");
+      document.getElementById("cookie-banner").style.display = "none";
+    });
+  </script>
+
 </body>
 </html>
