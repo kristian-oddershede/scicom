@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">  
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Privacy Statement - Basics of SciComm</title>
+  <link rel="stylesheet" href="/scicom/styles.css" />
+  <link rel="icon" type="image/png" href="/scicom/images/icon_scicom.png">
+</head>
+<body>
+  <header>
+    <h1><a href="/scicom/index.html" class="home-link">Basics of SciComm</a> - Privacy Statement</h1>
+    <div id="nav-placeholder"></div>
+  </header>
+
+  <main>
+    <section>
+      <h2>Privacy Statement</h2>
+      <p>
+        This website values your privacy and aims to be transparent about how information is handled.
+      </p>
+
+      <h3>Cookies</h3>
+      <p>
+        We only use necessary cookies to ensure the site functions properly. No tracking or advertising cookies are used. 
+        You can browse the site without concern for hidden data collection.
+      </p>
+
+      <h3>User Input</h3>
+      <p>
+        If you voluntarily provide your email address to give suggestions or feedback, it may be stored securely in Google Forms. 
+        Such data will be retained for up to <strong>two years</strong> before being deleted.
+      </p>
+
+      <h3>Ownership of Content</h3>
+      <p>
+        All pictures and files on this website are either:
+      </p>
+      <ul>
+        <li>Created and owned by the author, <strong>Kristian Dahlmann Oddershede</strong>, or</li>
+        <li>Open‑source materials that are referenced directly and used in accordance with their licenses.</li>
+      </ul>
+      <p>
+        The page icon is sourced from <a href="https://www.freepik.com" target="_blank">Freepik</a>.
+      </p>
+
+      <h3>Transparency</h3>
+      <p>
+        No personal information is shared with third parties, except as required by law. 
+        This site is intended for educational purposes and respects the rights of its visitors.
+      </p>
+    </section>
+  </main>
+
+  <div id="footer"></div>
+  <script>
+    fetch("/scicom/footer.html")
+      .then(r => r.text())
+      .then(html => { document.getElementById("footer").innerHTML = html; });
+
+    fetch("/scicom/nav.html")
+      .then(r => r.text())
+      .then(html => { document.getElementById("nav-placeholder").innerHTML = html; });
+  </script>
+</body>
+</html>
