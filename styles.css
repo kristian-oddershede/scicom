@@ -483,6 +483,16 @@ header h1 a.home-link:hover {
   background-color: #218838; /* darker green on hover */
 }
 
+.privacy-link {
+  color: #007bff;
+  text-decoration: underline;
+}
+
+.privacy-link:hover {
+  color: #0056b3;
+}
+
+
 
 /* Privacy page tweaks */
 main h2 {
