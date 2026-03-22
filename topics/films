@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Science Communication - Science in Films</title>
+  <link rel="stylesheet" href="/scicom/styles.css" />
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <link rel="icon" type="image/png" href="/scicom/images/icon_scicom.png">
+</head>
+<body>
+  <header>
+    <h1><a href="/scicom/index.html" class="home-link">Basics of SciComm</a> - Science Films</h1>
+    <div id="nav-placeholder"></div>
+  </header>
+
+  <main>
+    <section>
+      <h2>The power of the silver screen</h2>
+      <p>
+        Cinema is a primary source of scientific information—and misinformation—for the general public. While films are designed for entertainment, they play a critical role in shaping "mental models" of how scientists work and what the future of technology might look like.
+      </p>
+      <p>
+        Science communication in film isn't just about spotting errors; it's about understanding how narrative structures can be used to spark curiosity or create public anxiety. By analyzing the "cinematic scientist," we can better understand the cultural status of science today.
+      </p>
+    </section>
+
+    <section class="main-box">
+      Main thing to know: <br />
+      Films rarely prioritize raw accuracy over drama, but they excel at "public sense-making"—providing a space where society can explore the ethics, possibilities, and fears associated with scientific progress.
+    </section>
+
+    <section>
+      <h2>Definitions and core differences</h2>
+      <h3>"Hard" Science Fiction</h3>
+      <p>
+        Films that strive for internal consistency and adhere closely to known scientific laws. These movies often employ science consultants to ensure that everything from physics to biology feels grounded and plausible.
+      </p>
+      <h3>"Soft" or Speculative Science</h3>
+      <p>
+        Films that use science as a metaphor or a "MacGuffin" to drive the plot. Here, scientific accuracy is often sacrificed for visual spectacle or emotional resonance, prioritizing the "logic of the story" over the laws of nature.
+      </p>
+
+      <h3>At a glance comparison</h3>
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Aspect</th>
+            <th>Realistic Science (Hard Sci-Fi)</th>
+            <th>Hollywood Science (Soft Sci-Fi)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Primary Goal</td>
+            <td>Plausibility & Exploration</td>
+            <td>Metaphor & Entertainment</td>
+          </tr>
+          <tr>
+            <td>Narrative Role</td>
+            <td>Science as the solution/setting</td>
+            <td>Science as the "magic" or catalyst</td>
+          </tr>
+          <tr>
+            <td>Scientist Archetype</td>
+            <td>Nuanced, collaborative expert</td>
+            <td>The "Mad Scientist" or "Lone Genius"</td>
+          </tr>
+          <tr>
+            <td>Visual Style</td>
+            <td>Functional, detailed, cluttered</td>
+            <td>Sleek, futuristic, or "lab-gone-wrong"</td>
+          </tr>
+          <tr>
+            <td>Examples</td>
+            <td><em>Interstellar, The Martian, Contact</em></td>
+            <td><em>Jurassic Park, Star Wars, Moonfall</em></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Science Consulting – Shaping the narrative</h2>
+      <p>
+        The bridge between the lab and the studio is the Science Consultant. Their role has evolved from simply "fact-checking" to becoming creative collaborators who help build believable worlds.
+      </p>
+      <ul>
+        <li><strong>Script review:</strong> Identifying scientific concepts that can be swapped for more accurate (yet equally dramatic) alternatives.</li>
+        <li><strong>Visual authenticity:</strong> Helping production designers create realistic laboratory environments and equipment.</li>
+        <li><strong>Dialogue coaching:</strong> Ensuring that scientific jargon is used in a way that sounds natural to a professional's ear.</li>
+        <li><strong>Extrapolating tech:</strong> Working with directors to visualize "speculative technology" based on current research trajectories.</li>
+        <li><strong>Ethical sounding board:</strong> Helping writers navigate the societal implications of the technologies they portray on screen.</li>
+      </ul>
+      <p>
+        When scientists engage with Hollywood, they gain a platform to reach millions, making the "culture of science" more accessible and human.
+      </p>
+    </section>
+
+    <section>
+      <a href="/scicom/files/science-consulting-hollywood-guide.pdf" class="pdf-download" download>
+        Download a guide on Working as a Science Consultant in Film
+      </a>
+    </section>
+
+    <section>
+      <h2>Further reading – Science in Films</h2>
+      <a href="https://www.routledge.com/Routledge-Handbook-of-Public-Communication-of-Science-and-Technology/Bucchi-Trench/p/book/9780367702946" 
+        class="pdf-download" target="_blank" rel="noopener">
+        Read: Handbook of Science Communication – Chapter 8 (Science and Cinema)
+      </a>
+    </section>
+  </main>
+
+  <div id="footer"></div>
+  <script>
+    fetch("/scicom/footer.html")
+      .then(r => r.text())
+      .then(html => { document.getElementById("footer").innerHTML = html; });
+  </script>
+
+  <script>
+    async function loadNav() {
+      try {
+        const response = await fetch('/scicom/nav.html');
+        if (!response.ok) throw new Error('Network response was not ok');
+        const navHTML = await response.text();
+        document.getElementById('nav-placeholder').innerHTML = navHTML;
+
+        const links = document.querySelectorAll('#nav-placeholder nav a');
+        const currentPage = window.location.pathname.split('/').pop();
+
+        links.forEach(link => {
+          if (link.getAttribute('href') === currentPage) {
+            link.classList.add('active');
+          }
+        });
+      } catch (error) {
+        console.error('Failed to load navigation:', error);
+      }
+    }
+    loadNav();
+  </script>
+</body>
+</html>
